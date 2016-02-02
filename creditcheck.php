@@ -93,13 +93,11 @@ $mydata = explode('<ns1:term',$ndata);
 ?>
             <!-- New template for html starts here-->
             <table>
-              
                 <tr><td>&nbsp;</td></tr>
-                <tr><td><?php $a1 = explode('">',$mydata[2]); echo $a1[1] ; ?></td></tr>
+                <tr><td><?php $a1 = explode('">',$mydata[2]); echo $a1[1] ;?></td></tr>
                 <tr><td><?php $a1 = explode('">',$mydata[3]); echo $a1[1];?></td></tr>
                 <tr><td><?php $a1 = explode('">',$mydata[4]); echo $a1[1];?></td></tr>
                 <tr><td><?php $a1 = explode('">',$mydata[5]); echo $a1[1];?></td></tr>
-               
             </table>
                         </div>
                       </div>
@@ -114,7 +112,10 @@ $mydata = explode('<ns1:term',$ndata);
           <div class="row">
             <div class="col-lg-8">
               <div class="panel panel-yellow">
-               <div class="panel-heading">Kreditupplysning</div>
+               <div class="panel-heading">Kreditupplysning<tr>
+                    <td colspan="2"><span style="border:black solid thin;padding:2px;font-weight: bold;">UC</span></td>
+                </tr>
+</div>
                 <div class="panel-body pan">
                   <form name='send' action='individualhtml.php' method='POST' class="form-horizontal" target="_blank">
                     <div class="form-body pal">
@@ -126,11 +127,10 @@ $mydata = explode('<ns1:term',$ndata);
                             </div>
                           </div>
                           <div class="form-actions  pal">
-                          <div style="display:inline-block; float:left;"> <input type="checkbox">&nbsp;&nbsp;Ny UC sökning &nbsp;<i data-hover="tooltip" data-original-title="Truncate a new UC search" data-container="body" class="glyphicon glyphicon-info-sign tooltips"></i></div>  
+                          <div style="display:inline-block; float:left;"> <input type="checkbox">&nbsp;&nbsp;Ny UC sökning &nbsp;<i data-hover="tooltip" data-original-title="Truncate a new UC search" data-container="body" class="glyphicon glyphicon-info-sign tooltips"></i></div>
                             <div style="display:inline-block; float: right;">
-                            <button type="submit" onclick="setTimeout('history.go(0);',5000);" name='send'class="btn btn-primary">Sök</button>
+                            <button id="credit" type="submit" onclick="setTimeout('history.go(0);',5000);" name='send'class="btn btn-primary">Sök</button>
                             </div>
-<!--                            <button type="button" class="btn btn-green" onclick="formReset()">Cancel</button>-->
                           </div>
                         </div>
                       </div>
@@ -141,6 +141,14 @@ $mydata = explode('<ns1:term',$ndata);
             </div>
           </div>
 
+          <div>
+            <?php $query = "SELECT count(*) AS total FROM upload"; 
+              mysql_select_db('cchub_api');
+              $result = mysql_query($query); 
+              $values = mysql_fetch_assoc($result); 
+              $num_rows = $values['total']; 
+              echo $num_rows; ?>
+          </div>
           <div id="lista" class="row">
             <div class="col-lg-12">
               <div class="portlet box">

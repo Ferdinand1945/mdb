@@ -62,7 +62,8 @@ if(mysql_num_rows($getfromdb) > 0){
   $filesize = filesize($filename);
   $filtype = 'pdf';
 
-  mysql_query("insert into upload (name,type,size,personnumber) VALUES ('$filename','$filtype',$filesize,'$personnummer')");
+   $date_create = date('Y-m-d H:i:s');  
+  mysql_query("insert into upload (name,type,size,personnumber, datenow) VALUES ('$filename','$filtype',$filesize,'$personnummer', '$date_create')");
 //echo 'data done, file uplaoded to path.';
 }
 ?>

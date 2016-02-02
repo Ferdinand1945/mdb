@@ -15,7 +15,8 @@
                       </tr>
 
                     </thead>
-                    <?php
+                    <?php   $date_create = date('Y-m-d H:i:s');
+
 $conect = @mysql_connect("localhost", "root", "tMdUVx7xBmYUNvh5scU5sjBV") or die("No server found!");
 mysql_select_db("cchub_api",$conect)or die("No database found!");
 
@@ -27,7 +28,7 @@ if(mysql_num_rows($resulte) == 0)
 }
 else
 {
-  while(list($id, $personnumber, $name, $type) = mysql_fetch_array($resulte))
+  while(list($id, $personnumber, $name, $type, $date_create) = mysql_fetch_array($resulte))
   {
                     ?>
                     <tbody>
@@ -35,11 +36,11 @@ else
                         <td><input type="checkbox"/></td>
                         <td><?php echo $personnumber; ?></td>
                         <td><?php echo $name;?></td>
-                        <td>20-05-2014</td>
-                         <td>Uc datum</td>
+                        <td><?php echo $date = date('Y-m-d H:i:s'); ?></td>
+                        <td><?php echo $date_create; ?></td>
                         <td>ALD</td>
                         <td>
-                          <a type="button" class="btn btn-green btn-xs" href="<?php echo $name;?>">Visa   </a>
+                          <a type="button" class="btn btn-green btn-xs" href="<?php echo $name;?>">Visa</a>
                      
                           <?php //echo '<a type="button" href="delete_row.php?idd='.$id.'" class="btn btn-danger btn-xs">&nbsp; Delete <i class="fa fa-trash-o"> </i></a>'; ?>
                         </td>
