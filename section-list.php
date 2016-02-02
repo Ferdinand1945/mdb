@@ -1,8 +1,18 @@
 <?php 
 
 ?>
+<script>
+  function removeDummy() {
+  var elem = document.getElementById('dummy');
+  elem.parentNode.removeChild(elem);
+  return false;
+}</script>
+<div id="dummy">
+  <button onclick="removeDummy()">Remove</button>
+
+
 <a class="btn btn-danger btn-xs pull-right" href="delete_row.php?idd='.$id.'">Delete</a><br><br>
-  <table class="table table-hover table-striped table-bordered table-advanced tablesorter">
+  <table id="txt" class="table table-hover table-striped table-bordered table-advanced tablesorter">
                     <thead>
                       <tr>
                         <th width="3%"><input type="checkbox" class="checkall"/></th>
@@ -51,3 +61,4 @@ else
                       }
                     ?>
                   </table>
+  </div>
