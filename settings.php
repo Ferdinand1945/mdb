@@ -33,26 +33,77 @@ session_start();
                 
                   <form class="form">
                     <label for="limit">Kredit period: &nbsp;<i data-hover="tooltip" data-original-title="Change the Expiration dateof the credit checks" data-container="body" class="glyphicon glyphicon-info-sign tooltips"></i> </label>
-                    <select class="form-control">
-                      <option>2 mån</option>
-                      <option>4 mån</option>
-                      <option>6 mån</option> 
-                    </select>
+                    <?php
+                        $sqlHost = 'localhost';
+                        $sqlUser = 'root';
+                        $sqlPass = 'tMdUVx7xBmYUNvh5scU5sjBV';
+
+                        $conn =  new mysqli($sqlHost, $sqlUser, $sqlPass, 'cchub_api') ;
+                        if($conn->connect_errno){
+                            printf("Connect failed: %s\n", $conn->connect_error);
+                            exit();
+                        }
+                        $result = $conn->query("SELECT * FROM creditperiod")
+                                or trigger_error($conn->error); ?>
+
+                               <select class="form-control">
+                         <?php
+                        while ($row = $result->fetch_array(MYSQL_BOTH)){
+
+                        echo "<option>"
+                          .$row['creditPeriod'].
+                          " mån</option>";
+                        };
+?></select> 
                     <br>
                     <label for="fperiod">Frys period: &nbsp;<i data-hover="tooltip" data-original-title="Change the Hard limit if you are running out of querys" data-container="body" class="glyphicon glyphicon-info-sign tooltips"></i> </label>
-                    <select class="form-control">
-                      <option>12 mån</option>
-                      <option>24 mån</option>
-                      <option>36 mån</option> 
-                    </select>
+                     <?php
+                        $sqlHost = 'localhost';
+                        $sqlUser = 'root';
+                        $sqlPass = 'tMdUVx7xBmYUNvh5scU5sjBV';
+
+                        $conn =  new mysqli($sqlHost, $sqlUser, $sqlPass, 'cchub_api') ;
+                        if($conn->connect_errno){
+                            printf("Connect failed: %s\n", $conn->connect_error);
+                            exit();
+                        }
+                        $result = $conn->query("SELECT * FROM Frysperiod")
+                                or trigger_error($conn->error); ?>
+
+                               <select class="form-control">
+                         <?php
+                        while ($row = $result->fetch_array(MYSQL_BOTH)){
+
+                        echo "<option>"
+                          .$row['frysperiod'].
+                          " mån</option>";
+                        };
+?></select> 
                  
                   <br>
                     <label for="slimit">Cache period: &nbsp;<i data-hover="tooltip" data-original-title="Change the Hard limit if you are running out of querys" data-container="body" class="glyphicon glyphicon-info-sign tooltips"></i> </label>
-                    <select class="form-control">
-                      <option>20</option>
-                      <option>50</option>
-                      <option>100</option> 
-                    </select>
+                             <?php
+                        $sqlHost = 'localhost';
+                        $sqlUser = 'root';
+                        $sqlPass = 'tMdUVx7xBmYUNvh5scU5sjBV';
+
+                        $conn =  new mysqli($sqlHost, $sqlUser, $sqlPass, 'cchub_api') ;
+                        if($conn->connect_errno){
+                            printf("Connect failed: %s\n", $conn->connect_error);
+                            exit();
+                        }
+                        $result = $conn->query("SELECT * FROM cacheperiod")
+                                or trigger_error($conn->error); ?>
+
+                               <select class="form-control">
+                         <?php
+                        while ($row = $result->fetch_array(MYSQL_BOTH)){
+
+                        echo "<option>"
+                          .$row['cachePeriod'].
+                          " mån</option>";
+                        };
+?></select> 
 
                 </div>
                 </div>
@@ -123,21 +174,55 @@ session_start();
               <form role="form" class="form-horizontal form-separated">
                 <div class="form-body pdl">
                 
-                  <form class="form" action="counter.php" method="POST">
+                  <form class="form" action="" method="post">
                   <label for="hlimit">Mjuk gräns: &nbsp;<i data-hover="tooltip" data-original-title="Change the Hard limit if you are running out of querys" data-container="body" class="glyphicon glyphicon-info-sign tooltips"></i></label>
-                    <select name="softlimit" class="form-control">
-                      <option value="4">4</option>
-                      <option value="50">50</option>
-                      <option>100</option> 
-                    </select>
+                   <?php
+                        $sqlHost = 'localhost';
+                        $sqlUser = 'root';
+                        $sqlPass = 'tMdUVx7xBmYUNvh5scU5sjBV';
+
+                        $conn =  new mysqli($sqlHost, $sqlUser, $sqlPass, 'cchub_api') ;
+                        if($conn->connect_errno){
+                            printf("Connect failed: %s\n", $conn->connect_error);
+                            exit();
+                        }
+                        $result = $conn->query("SELECT * FROM Soft")
+                                or trigger_error($conn->error); ?>
+
+                               <select class="form-control">
+                         <?php
+                        while ($row = $result->fetch_array(MYSQL_BOTH)){
+
+                        echo "<option>"
+                          .$row['Softlimit'].
+                          "</option>";
+                        };
+?></select> 
                     
                     <br>
                   <label for="hlimit">Hård gräns: &nbsp;<i data-hover="tooltip" data-original-title="Change the Hard limit if you are running out of querys" data-container="body" class="glyphicon glyphicon-info-sign tooltips"></i></label>
-                    <select class="form-control">
-                      <option>150</option>
-                      <option>200</option>
-                      <option>300</option> 
-                    </select>
+                    <?php
+                        $sqlHost = 'localhost';
+                        $sqlUser = 'root';
+                        $sqlPass = 'tMdUVx7xBmYUNvh5scU5sjBV';
+
+                        $conn =  new mysqli($sqlHost, $sqlUser, $sqlPass, 'cchub_api') ;
+                        if($conn->connect_errno){
+                            printf("Connect failed: %s\n", $conn->connect_error);
+                            exit();
+                        }
+                        $result = $conn->query("SELECT * FROM Hard")
+                                or trigger_error($conn->error); ?>
+
+                               <select class="form-control">
+                         <?php
+                        while ($row = $result->fetch_array(MYSQL_BOTH)){
+
+                        echo "<option>"
+                          .$row['Hardlimit'].
+                          "</option>";
+                        };
+?></select> 
                     
                     <br>
                     
@@ -156,11 +241,11 @@ session_start();
                 </div>
               </div>
               </form>
+             
           </div>
         </div>
       </div>
-       
-       
+      
           <div class="row">
         <div class="col-lg-6">
           <div class="portlet box portlet-violet">
