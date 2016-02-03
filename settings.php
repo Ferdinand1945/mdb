@@ -5,7 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
   <?php include 'header.php' ?>
-
+  
 
   <div id="page-wrapper"><!--BEGIN TITLE & BREADCRUMB PAGE-->
     <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
@@ -123,11 +123,11 @@ session_start();
               <form role="form" class="form-horizontal form-separated">
                 <div class="form-body pdl">
                 
-                  <form class="form">
+                  <form class="form" action="counter.php" method="POST">
                   <label for="hlimit">Mjuk gräns: &nbsp;<i data-hover="tooltip" data-original-title="Change the Hard limit if you are running out of querys" data-container="body" class="glyphicon glyphicon-info-sign tooltips"></i></label>
-                    <select class="form-control">
-                      <option>20</option>
-                      <option>50</option>
+                    <select name="softlimit" class="form-control">
+                      <option value="4">4</option>
+                      <option value="50">50</option>
                       <option>100</option> 
                     </select>
                     
