@@ -22,7 +22,7 @@ session_start();
     <div class="page-content">
       <div class="row">
         <div class="col-lg-6">
-          <div class="portlet box portlet-violet">
+          <div class="portlet box portlet-yellow">
             <div class="portlet-header">
               <div class="caption">Period inställningar</div>
               <div class="tools"><i class="fa fa-chevron-up"></i><i data-toggle="modal" data-target="#modal-config" class="fa fa-cog"></i><i class="fa fa-refresh"></i><i class="fa fa-times"></i></div>
@@ -121,7 +121,7 @@ session_start();
                       
                               <div class="row">
         <div class="col-lg-6">
-          <div class="portlet box portlet-violet">
+          <div class="portlet box portlet-yellow">
             <div class="portlet-header">
               <div class="caption">Loggar</div>
               <div class="tools"><i class="fa fa-chevron-up"></i><i data-toggle="modal" data-target="#modal-config" class="fa fa-cog"></i><i class="fa fa-refresh"></i><i class="fa fa-times"></i></div>
@@ -165,7 +165,7 @@ session_start();
                                 
      <div class="row">
         <div class="col-lg-6">
-          <div class="portlet box portlet-violet">
+          <div class="portlet box portlet-yellow">
             <div class="portlet-header">
               <div class="caption">Sökningar</div>
               <div class="tools"><i class="fa fa-chevron-up"></i><i data-toggle="modal" data-target="#modal-config" class="fa fa-cog"></i><i class="fa fa-refresh"></i><i class="fa fa-times"></i></div>
@@ -248,9 +248,9 @@ session_start();
       
           <div class="row">
         <div class="col-lg-6">
-          <div class="portlet box portlet-violet">
+          <div class="portlet box portlet-yellow">
             <div class="portlet-header">
-              <div class="caption">Sökningar</div>
+              <div class="caption">Ladda ner data</div>
               <div class="tools"><i class="fa fa-chevron-up"></i><i data-toggle="modal" data-target="#modal-config" class="fa fa-cog"></i><i class="fa fa-refresh"></i><i class="fa fa-times"></i></div>
             </div>
             <div class="portlet-body pan">
