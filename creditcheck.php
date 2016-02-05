@@ -127,7 +127,7 @@ $mydata = explode('<ns1:term',$ndata);
                             </div>
                           </div>
                           <div class="form-actions  pal">
-                          <div style="display:inline-block; float:left;"> <input type="checkbox">&nbsp;&nbsp;Ny UC sökning &nbsp;<i data-hover="tooltip" data-original-title="Truncate a new UC search" data-container="body" class="glyphicon glyphicon-info-sign tooltips"></i></div>
+                          <div style="display:inline-block; float:left;"> <input name="check1" value="check1" type="checkbox">&nbsp;&nbsp;Ny UC sökning &nbsp;<i data-hover="tooltip" data-original-title="Truncate a new UC search" data-container="body" class="glyphicon glyphicon-info-sign tooltips"></i></div>
                             <div style="display:inline-block; float: right;">
                             <button id="credit" type="submit" onclick="setTimeout('history.go(0);',5000);" name='send'class="btn btn-primary">Sök</button>
                             </div>
@@ -141,8 +141,9 @@ $mydata = explode('<ns1:term',$ndata);
             </div>
           </div>
 
-         <?php include 'counter.php'; ?>
+         <?php include 'modules/counter.php'; ?>
           </div>
+        
           <div id="lista" class="row">
             <div class="col-lg-12">
               <div class="portlet box">

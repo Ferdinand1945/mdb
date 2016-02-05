@@ -10,7 +10,7 @@ $con = mysql_connect('localhost','root','tMdUVx7xBmYUNvh5scU5sjBV');
 $conn = mysql_select_db('cchub_api',$con);
 $personnummer = $_POST['personnummer'];
 $getfromdb = mysql_query("select * from upload where personnumber = '$personnummer' limit 1");
-if(mysql_num_rows($getfromdb) > 0){
+if(!isset($_POST['check1']) && mysql_num_rows($getfromdb) > 0){
   $pdffiledata = mysql_fetch_array($getfromdb);
   echo file_get_contents($pdffiledata['name']);
 } else {
