@@ -63,10 +63,10 @@ if(!isset($_POST['check1']) && mysql_num_rows($getfromdb) > 0){
   $filtype = 'pdf';
 
    $date_create = date('Y-m-d H:i:s');  
-  mysql_query("insert into upload (name,type,size,personnumber, datenow) VALUES ('$filename','$filtype',$filesize,'$personnummer', '$date_create')");
+  mysql_query("insert into upload (name, personnumber, type,size, datenow) VALUES ('$filename', '$personnummer', '$filtype', '$filesize', '$date_create')");
 //echo 'data done, file uplaoded to path.';
 }
 ?>
-
+    
   </body>
 </html>

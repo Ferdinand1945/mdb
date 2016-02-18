@@ -1,17 +1,7 @@
 <?php 
 
 ?>
-<script>
-  function removeDummy() {
-  var elem = document.getElementById('dummy');
-  elem.parentNode.removeChild(elem);
-  return false;
-}</script>
-<div id="dummy">
-  <button onclick="removeDummy()">Remove</button>
-
-
-<a class="btn btn-danger btn-xs pull-right" href="delete_row.php?idd='.$id.'">Delete</a><br><br>
+<a class="btn btn-danger btn-xs pull-right" name="delete" href="delete_row.php">Delete</a><br><br>
   <table id="txt" class="table table-hover table-striped table-bordered table-advanced tablesorter">
                     <thead>
                       <tr>
@@ -41,9 +31,10 @@ else
   while(list($id, $personnumber, $name, $type, $date_create) = mysql_fetch_array($resulte))
   {
                     ?>
+  <form method="POST">
                     <tbody>
                       <tr>
-                        <td><input type="checkbox"/></td>
+                        <td align="center" bgcolor="#FFFFFF"><input name="checkbox[]" type="checkbox" id="checkbox[]" value="<?php echo $rows['idd']; ?>"></td>
                         <td><?php echo $personnumber; ?></td>
                         <td><?php echo $name;?></td>
                         <td><?php echo $date = date('Y-m-d H:i:s'); ?></td>
@@ -51,14 +42,33 @@ else
                         <td>ALD</td>
                         <td>
                           <a type="button" class="btn btn-green btn-xs" href="<?php echo $name;?>">Visa</a>
-                     
-                          <?php //echo '<a type="button" href="delete_row.php?idd='.$id.'" class="btn btn-danger btn-xs">&nbsp; Delete <i class="fa fa-trash-o"> </i></a>'; ?>
                         </td>
                       </tr>
+                       <tr>
+    
                     </tbody>
                     <?php
                         }
                       }
                     ?>
+    <td colspan="5" align="center" bgcolor="#FFFFFF"><input name="delete" type="submit" id="delete" value="Delete"></td>
+    </tr>
+          <?php
+          $checkbox = $_POST['checkbox'];
+          $delete = $_POST['delete'];
+          // Check if delete button active, start this
+          if($delete){
+          for($i=0;$i<$count;$i++){
+          $del_id = $checkbox[$i];
+          $sql = "DELETE FROM $tbl_name WHERE idd='$del_id'";
+          $result = mysql_query($sql);
+          }
+          // if successful redirect to delete_multiple.php
+          if($result){
+          echo "<meta http-equiv=\"refresh\" content=\"0;URL=creditcheck.php\">";
+          }
+          }
+          mysql_close();
+          ?>
+    </form>
                   </table>
-  </div>

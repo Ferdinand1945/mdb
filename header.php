@@ -278,11 +278,13 @@
                   </i><span class="menu-title">Sök</span><span class="fa arrow"></span></a>
                 </li>
 
+<!--
                 <li class=""><a href="list.php"><i class="fa fa-database fa-fw">
                   <div class="icon-bg bg-red"></div>
                   </i><span class="menu-title">Kredit Logg</span><span class="fa arrow"></span>
                   </a>
                 </li>
+-->
                 
                 <li class=""><a href="log.php"><i class="fa fa-sitemap fa-fw">
                   <div class="icon-bg bg-red"></div>
